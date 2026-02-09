@@ -359,6 +359,27 @@ a:focus {
   padding: 14px 12px;
 }
 
+.affiliate-banner-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 14px;
+}
+
+.affiliate-banner-wrap iframe {
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.affiliate-banner-wrap.is-full iframe {
+  width: 100%;
+  min-height: 240px;
+}
+
 .cta-viral {
   background: linear-gradient(145deg, #153765, #0d213c);
   color: #f8f0dc;
@@ -382,11 +403,39 @@ a:focus {
   text-align: center;
 }
 
+.loading-hero {
+  display: grid;
+  gap: 10px;
+}
+
+.loading-inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid #10223b2e;
+  background: #fff5df;
+}
+
+.loading-inline-copy {
+  display: grid;
+  gap: 4px;
+  text-align: left;
+}
+
 .orb-wrap {
   width: 164px;
   height: 164px;
   margin: 8px auto 4px;
   position: relative;
+}
+
+.orb-wrap-inline {
+  width: 96px;
+  height: 96px;
+  margin: 0;
+  flex: 0 0 96px;
 }
 
 .orb,
@@ -400,6 +449,11 @@ a:focus {
   height: 104px;
   filter: blur(2px);
   opacity: 0.78;
+}
+
+.orb-wrap-inline .orb {
+  width: 58px;
+  height: 58px;
 }
 
 .orb-a {
@@ -423,6 +477,20 @@ a:focus {
   animation: orbit-c 2.6s ease-in-out infinite;
 }
 
+.orb-wrap-inline .orb-a {
+  left: 12px;
+}
+
+.orb-wrap-inline .orb-b {
+  right: 6px;
+  top: 16px;
+}
+
+.orb-wrap-inline .orb-c {
+  left: 5px;
+  bottom: 4px;
+}
+
 .orb-core {
   width: 64px;
   height: 64px;
@@ -434,8 +502,15 @@ a:focus {
   animation: core-pulse 1.4s ease-in-out infinite;
 }
 
+.orb-wrap-inline .orb-core {
+  width: 36px;
+  height: 36px;
+  top: 29px;
+  left: 29px;
+}
+
 .loading-text {
-  margin: 6px 0 4px;
+  margin: 0;
   font-size: 13px;
   color: #2e3244;
 }
@@ -444,6 +519,13 @@ a:focus {
   margin: 0;
   font-weight: 800;
   color: #8a271b;
+}
+
+.loading-ad-card {
+  min-height: 400px;
+  display: grid;
+  align-content: start;
+  gap: 10px;
 }
 
 .meme-card {
@@ -716,6 +798,10 @@ a:focus {
   color: #40394b;
   padding: 10px 12px;
   background: #f4e9ce;
+}
+
+.ad-banner .affiliate-banner-wrap {
+  margin-top: 10px;
 }
 
 .reveal-flash {
