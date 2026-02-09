@@ -1,0 +1,5 @@
+interface:
+  display_name: "Share-Bait Architecture"
+  short_description: "Design result screens for sharing + CTR"
+  default_prompt: "Structure the result as a 9:16-friendly meme card (headline, hero visual, stats, brand stamp/QR). Define primary Share CTA and secondary Monetization CTA with distinct copy and styling."
+

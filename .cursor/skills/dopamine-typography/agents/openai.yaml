@@ -1,0 +1,5 @@
+interface:
+  display_name: "Dopamine Typography"
+  short_description: "Make text feel like UI"
+  default_prompt: "Propose a font pairing and a 3-level typographic hierarchy (verdict, hook, description). Apply at least one dopamine text effect (stroke/shadow/transform/gradient) to key copy with concrete CSS classes."
+

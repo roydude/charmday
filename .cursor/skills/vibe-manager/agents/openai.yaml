@@ -1,0 +1,5 @@
+interface:
+  display_name: "Vibe Manager"
+  short_description: "Ship-ready OG/meta + deploy checklist"
+  default_prompt: "Generate ready-to-paste OG/meta tags (and Twitter Card if relevant), a deployment checklist for the current stack, and short high-CTR share copy for KakaoTalk/Instagram."
+

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Viral Visual Hook"
+  short_description: "Pick an extreme aesthetic and commit to it"
+  default_prompt: "Select (or infer) one aesthetic mode and apply it consistently across layout, colors, backgrounds, and containers. Output concrete CSS variables + layout rules, then implement them in the UI."
+

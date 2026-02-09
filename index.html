@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charmday | Today Charm Pick</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Hahmlet:wght@400;700;900&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="reveal-flash" class="reveal-flash" aria-hidden="true"></div>
+    <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+    <main class="viewport">
+      <section class="phone-shell">
+        <section id="view-start" class="view is-active">
+          <header class="hero">
+            <p class="eyebrow" id="hero-eyebrow">Saju x Daily Item</p>
+            <h1>Charmday</h1>
+            <p class="subhead" id="hero-subhead">오늘 나에게 필요한 부적템이 뭘까?</p>
+          </header>
+
+          <article class="card language-card">
+            <p class="tiny" id="language-label">언어 / Language</p>
+            <div class="language-grid" id="language-grid">
+              <button type="button" class="language-btn is-selected" data-lang="ko">한국어</button>
+              <button type="button" class="language-btn" data-lang="en">English</button>
+              <button type="button" class="language-btn" data-lang="ja">日本語</button>
+              <button type="button" class="language-btn" data-lang="es">Español</button>
+            </div>
+          </article>
+
+          <section class="card input-card">
+            <h2 id="input-title">생년월일시 입력</h2>
+            <p class="hint" id="input-hint">디테일 분석: 출생 정보가 자세할수록 정확도가 높아져!</p>
+            <form id="saju-form" novalidate>
+              <div class="field-grid">
+                <label>
+                  <span id="label-year">출생 연도</span>
+                  <input id="birth-year" type="number" inputmode="numeric" min="1940" max="2026" placeholder="예: 2003" required />
+                </label>
+
+                <label>
+                  <span id="label-month">출생 월</span>
+                  <input id="birth-month" type="number" inputmode="numeric" min="1" max="12" placeholder="1-12" required />
+                </label>
+
+                <label>
+                  <span id="label-day">출생 일</span>
+                  <input id="birth-day" type="number" inputmode="numeric" min="1" max="31" placeholder="1-31" required />
+                </label>
+
+                <label>
+                  <span id="label-hour">출생 시 (24시간)</span>
+                  <input id="birth-hour" type="number" inputmode="numeric" min="0" max="23" placeholder="0-23" required />
+                </label>
+
+                <label>
+                  <span id="label-minute">출생 분</span>
+                  <input id="birth-minute" type="number" inputmode="numeric" min="0" max="59" placeholder="0-59" />
+                </label>
+
+                <label class="check-row">
+                  <input type="checkbox" id="unknown-time" />
+                  <span id="unknown-time-label">정확한 시간을 몰라요 (시/분 스킵)</span>
+                </label>
+              </div>
+
+              <p id="input-error" class="error-msg hidden" role="alert"></p>
+              <button type="submit" class="cta-main" id="analyze-btn">오늘의 부적템 보기</button>
+            </form>
+          </section>
+        </section>
+
+        <section id="view-loading" class="view hidden" aria-live="polite">
+          <article class="hero loading-hero">
+            <p class="eyebrow" id="loading-eyebrow">Step 2</p>
+            <h2 id="loading-title">오늘의 부적템 찾는 중</h2>
+            <p class="subhead" id="loading-subtitle">오행, 음양, 오늘의 기운을 조합해서 가장 잘 맞는 아이템을 찾고 있어.</p>
+          </article>
+
+          <article class="card loading-card">
+            <div class="orb-wrap" aria-hidden="true">
+              <span class="orb orb-a"></span>
+              <span class="orb orb-b"></span>
+              <span class="orb orb-c"></span>
+              <span class="orb-core"></span>
+            </div>
+            <p class="loading-text" id="loading-text">기운 캘리브레이션 진행 중...</p>
+            <p class="countdown"><span id="countdown-sec">5</span>s</p>
+          </article>
+
+          <article class="card ad-card">
+            <p class="tiny" id="ad-caption">오늘의 추천 쇼핑</p>
+            <h3 id="ad-title">쿠팡에서 오늘의 기운템 미리 보기</h3>
+            <p id="ad-description">결과 분석이 끝나면 오늘 너에게 딱 맞는 아이템을 바로 알려줄게.</p>
+            <a id="ad-link" class="cta-sub" target="_blank" rel="noopener noreferrer">쿠팡 베스트 보기</a>
+          </article>
+        </section>
+
+        <section id="view-result" class="view hidden">
+          <article class="card meme-card">
+            <p class="meme-alias" id="meme-alias">회복 모드</p>
+            <p class="meme-symbol" id="meme-symbol">💧</p>
+            <p class="meme-line" id="meme-line">오늘은 회복이 실력. 무리하면 티 나게 흔들려.</p>
+            <button id="share-primary" class="cta-viral">친구 소환</button>
+          </article>
+
+          <article class="hero result-hero">
+            <p class="eyebrow" id="result-mode"></p>
+            <h2 id="result-headline"></h2>
+            <p class="subhead" id="result-summary"></p>
+          </article>
+
+          <article class="card insight-card">
+            <h3 id="gapja-title">오늘의 60갑자 해석</h3>
+            <p class="tiny" id="gapja-pillar-label">사주 기둥</p>
+            <p class="body-copy" id="gapja-pillars"></p>
+            <p class="tiny" id="gapja-day-label">오늘의 핵심 갑자</p>
+            <p class="body-copy" id="gapja-day"></p>
+            <p class="body-copy" id="gapja-variation"></p>
+          </article>
+
+          <article class="card insight-card">
+            <h3 id="balance-title">오늘의 오행 밸런스</h3>
+            <div class="energy-wheel-wrap">
+              <svg id="energy-wheel-svg" class="energy-wheel-svg" viewBox="0 0 240 240" aria-hidden="true"></svg>
+              <p id="energy-wheel-center" class="energy-wheel-center">음양</p>
+            </div>
+            <p class="hint energy-wheel-guide" id="energy-wheel-guide">굵은 링=강한 기운 · 점선 링=보강 기운</p>
+            <div id="element-bars"></div>
+            <p class="hint" id="confidence-text"></p>
+          </article>
+
+          <article class="card insight-card">
+            <h3 id="detail-title">분석 인사이트</h3>
+            <div class="chip-grid">
+              <p class="chip"><span id="chip-dominant-label">우세 기운</span><strong id="chip-dominant"></strong></p>
+              <p class="chip"><span id="chip-lacking-label">보강 기운</span><strong id="chip-lacking"></strong></p>
+              <p class="chip"><span id="chip-yinyang-label">음양 흐름</span><strong id="chip-yinyang"></strong></p>
+              <p class="chip"><span id="chip-lucky-label">럭키 무드</span><strong id="chip-lucky"></strong></p>
+            </div>
+            <p id="detail-description" class="body-copy"></p>
+          </article>
+
+          <article class="card report-card">
+            <h3 id="why-title">왜 이 결과?</h3>
+            <ul id="why-list" class="why-list"></ul>
+            <div class="do-dont-grid">
+              <article>
+                <p class="tiny" id="do-title">Do</p>
+                <p class="body-copy" id="do-copy"></p>
+              </article>
+              <article>
+                <p class="tiny" id="dont-title">Don't</p>
+                <p class="body-copy" id="dont-copy"></p>
+              </article>
+            </div>
+            <p class="lucky-line" id="lucky-line"></p>
+          </article>
+
+          <article class="card result-item-card">
+            <h3 id="recommend-title">오늘의 메인 추천템</h3>
+            <p class="product-name" id="product-name"></p>
+            <p class="body-copy" id="product-reason"></p>
+            <a id="link-main" class="cta-main" target="_blank" rel="noopener noreferrer">쿠팡에서 바로 보기</a>
+          </article>
+
+          <article class="card result-item-card">
+            <h3 id="more-title">그 외 추천 아이템</h3>
+            <div id="more-list" class="more-list"></div>
+          </article>
+
+          <article class="card result-item-card">
+            <h3 id="action-title">오늘의 행동 부적</h3>
+            <p id="daily-action" class="body-copy"></p>
+            <div class="result-actions">
+              <button id="share-btn" class="cta-sub">결과 링크 복사</button>
+              <button id="restart-btn" class="cta-sub">다시 분석하기</button>
+            </div>
+          </article>
+
+          <article class="ad-banner">
+            <p id="footer-ad-note">안내: 쿠팡 파트너스 활동을 통해 일정 수수료를 받을 수 있습니다.</p>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Vibe Planner"
+  short_description: "Plan viral hyper-casual concepts"
+  default_prompt: "Produce a tight viral game spec (<30s flow) with 4 distinct results and a clear result→product mapping table suitable for Coupang-style monetization."
+

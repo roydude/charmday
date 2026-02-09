@@ -1,0 +1,5 @@
+interface:
+  display_name: "Juicy Interaction Physics"
+  short_description: "Add game-feel feedback and staged reveals"
+  default_prompt: "Add press/click feedback to interactive elements and implement a staged reveal for results (spinner → flash → card reveal → confetti). Use bouncy/snappy easing and keyframe motion; avoid linear transitions."
+

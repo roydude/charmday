@@ -1,0 +1,5 @@
+interface:
+  display_name: "Vibe Artist"
+  short_description: "Implement viral UI end-to-end"
+  default_prompt: "Implement the approved spec in the existing repo stack. Apply visual hook + dopamine typography + juicy motion + share-card architecture, and deliver landing→input→loading→result→CTAs with production-ready code."
+

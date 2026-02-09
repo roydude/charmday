@@ -1,0 +1,5 @@
+interface:
+  display_name: "Vibe Critic"
+  short_description: "Critique for virality + CTR"
+  default_prompt: "Review the concept/spec for friction and shareability. Return Pass/Fail, blockers, and concrete rewrites for hook/result/CTA copy plus a shorter improved flow."
+
