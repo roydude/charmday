@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://roydude.github.io/charmday/sitemap.xml
